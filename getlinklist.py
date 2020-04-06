@@ -32,7 +32,7 @@ class GetAllPlaylistLinks():
 
 
     def load_url(self, playlist_id):
-        url = playlist_id
+        url = "https://www.youtube.com/playlist?list=" + playlist_id
         self.driver.get(url)
         WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "thumbnail")))
 
@@ -67,12 +67,19 @@ class GetAllPlaylistLinks():
         links = []
         for element in soup.find_all('a', id="thumbnail", href=True):
             rawlink = element['href']
-
             if(count >= 1):
-                links.append("http://youtube.com/" + rawlink[:rawlink.index("&list=")])
+                try:
+                    str = rawlink[:rawlink.index("&list=")]
+                except ValueError :
+                    continue
+
+                try :
+                    str2 = rawlink[:rawlink.index("&start_radio=")]
+                except ValueError :
+                    links.append("http://youtube.com/" + str)
 
             count += 1
-
+        ###Loop ends here
         return links
 
     def get_link_list(self, playlist_id):
@@ -82,8 +89,3 @@ class GetAllPlaylistLinks():
         finallinks = self.get_content()
 
         return finallinks
-
-    """
-    if __name__ == '__main__':
-        main()
-    """
