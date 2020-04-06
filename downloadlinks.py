@@ -23,7 +23,6 @@ class downloader():
         path = os.getcwd() +"/downloads"
         for link in self.linklist:
             yt = YouTube(link)
-            time.sleep(3)
             #path = os.getcwd() +"/downloads"
             yt.streams.first().download(path)
             print("Download Complete : " + yt.title)
