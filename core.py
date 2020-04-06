@@ -8,7 +8,7 @@ Created on Mon Apr  6 16:16:37 2020
 from downloadlinks import *
 
 def main():
-    url = input("Link to the playlist : ")
+    url = input("The Playlist ID: ")
     ##Will be downloaded to /cwd/downloads
     playlist_down_obj = downloader(url)
     playlist_down_obj.downloadit()
