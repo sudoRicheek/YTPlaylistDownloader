@@ -1,4 +1,4 @@
-#YT Playlist Downloader
+# YT Playlist Downloader
 
 A simple YouTube playlist scraper for downloading/getting links to all videos in a playlist.
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
   ```
   Depending on your Version/System.
 
-* Provide it the link to the playlist and all the videos will get downloaded into the downloads directory of the cloned repo.
+* Provide the Playlist ID to it and all the videos will get downloaded into the downloads directory of the cloned repo.
 
   ***Enjoy :P***
 
